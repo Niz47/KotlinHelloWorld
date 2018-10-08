@@ -3,6 +3,7 @@ package com.example.zinmarhtun.kotlinhelloworld
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,6 +17,10 @@ class LoginActivity : AppCompatActivity() {
             val password = password_edittext_register.text.toString()
 
             Log.d("LoginActivity >> ", "Attempt Login with email/password >> $email/****")
+
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
+//                    .addOnCompleteListener ()
+//                    .add
         }
 
         back_to_register_textview.setOnClickListener {

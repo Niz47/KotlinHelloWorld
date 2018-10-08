@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "988505384124",
+    "firebase_url": "https://kotlinhelloworld.firebaseio.com",
+    "project_id": "kotlinhelloworld",
+    "storage_bucket": "kotlinhelloworld.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988505384124:android:8acc6e2d7d651504",
+        "android_client_info": {
+          "package_name": "com.example.zinmarhtun.kotlinhelloworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988505384124-sr46q9gh5e519pu2anbeqi3su26tne3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnYzgkRpD8A7RD5gO268EJIAMQc4LAxCg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

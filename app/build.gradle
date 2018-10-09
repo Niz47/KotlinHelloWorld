@@ -35,6 +35,10 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-auth:16.0.4'
+    implementation 'com.google.firebase:firebase-storage:16.0.3'
+    implementation 'com.google.firebase:firebase-database:16.0.3'
+
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 }
 
 com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

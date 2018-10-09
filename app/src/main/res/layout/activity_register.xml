@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_green_light"
-    tools:context=".MainActivity">
+    tools:context=".RegisterActivity">
 
     <EditText
         android:id="@+id/username_edittext_register"
@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/rounded_edittext_register_login"
@@ -23,7 +23,7 @@
         android:paddingLeft="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/select_photo_btn_register" />
 
     <EditText
         android:id="@+id/email_edittext__register"
@@ -79,5 +79,28 @@
         app:layout_constraintEnd_toEndOf="@+id/register_btn_register"
         app:layout_constraintStart_toStartOf="@+id/register_btn_register"
         app:layout_constraintTop_toBottomOf="@+id/register_btn_register" />
+
+    <Button
+        android:id="@+id/select_photo_btn_register"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:background="@drawable/rounded_select_photo_button"
+        android:text="SELECT PHOTO"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/selectphoto_imageview_register"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
 
 </android.support.constraint.ConstraintLayout>

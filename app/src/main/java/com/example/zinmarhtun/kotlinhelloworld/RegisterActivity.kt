@@ -105,8 +105,8 @@ class RegisterActivity : AppCompatActivity() {
         ref.putFile(selectedPhotoUri!!)
                 .addOnSuccessListener{
                     Log.d("RegisterActivity >>", "Successfully uploaded image: ${it.metadata?.path}")
-                    ref.downloadUrl.addOnCompleteListener {
-                        Log.d("RegisterActivity >>", "File Location : ${it.toString()}")
+                    ref.downloadUrl.addOnSuccessListener {
+                        Log.d("RegisterActivity >>", "File Location : $it")
                         saveUserToFirebaseDatabase(it.toString())
                     }
                 }
@@ -117,13 +117,18 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun saveUserToFirebaseDatabase(profileImageUrl: String) {
         val uid = FirebaseAuth.getInstance().uid ?: ""
-        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
-        val user = User(uid,username_edittext_register.text.toString(), profileImageUrl)
-        ref.setValue(user)
-                .addOnCompleteListener {
+        Log.d("RegisterActivity >>", "UID : $uid")
+        Log.d("RegisterActivity >>", "Image URL : $profileImageUrl")
+        Log.d("RegisterActivity >>", "UserName : ${username_edittext_register.text.toString()}")
+        val db = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        val user = User(uid, username_edittext_register.text.toString(), profileImageUrl)
+        Log.d("RegisterActivity >>", "Firebase DB RF : $db")
+        Log.d("RegisterActivity >>", "User obj : ${user.toString()}")
+        db.setValue(user)
+                .addOnSuccessListener {
                     Log.d("RegisterActivity >>", "Finally we saved new user to firebase database")
                 }
     }
 }
 
-class User(val uid:String, val username:String, val profileImageUrl:String)
+data class User(val uid: String, val username: String, val profileImageUrl: String)

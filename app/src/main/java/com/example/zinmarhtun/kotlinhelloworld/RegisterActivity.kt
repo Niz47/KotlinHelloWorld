@@ -55,7 +55,7 @@ class RegisterActivity : AppCompatActivity() {
             selectedPhotoUri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
             selectphoto_imageview_register.setImageBitmap(bitmap)
-            //selectphoto_imageview_register.alpha = 0f
+            select_photo_btn_register.alpha = 0f
 
             /*val bitmapDrawable = BitmapDrawable(bitmap)
             select_photo_btn_register.setBackgroundDrawable(bitmapDrawable)*/

@@ -1,5 +1,6 @@
 package com.example.zinmarhtun.kotlinhelloworld
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -38,6 +39,12 @@ class NewMessageActivity : AppCompatActivity() {
                     Log.d("Users", it.toString())
                     val user = it.getValue(User::class.java)
                     if (user != null) adapter.add(UserItem(user))
+                }
+
+                adapter.setOnItemClickListener{item, view->
+                    val intent = Intent(view.context, ChatLogActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
                 recycleview_new_message.adapter = adapter
             }

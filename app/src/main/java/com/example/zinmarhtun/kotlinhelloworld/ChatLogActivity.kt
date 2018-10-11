@@ -2,6 +2,8 @@ package com.example.zinmarhtun.kotlinhelloworld
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import com.example.zinmarhtun.kotlinhelloworld.models.User
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
@@ -14,7 +16,10 @@ class ChatLogActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_log)
 
-        supportActionBar?.title = "Chat Log"
+//        val username = intent.getStringExtra(NewMessageActivity.USER_KEY)
+        val user = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
+        Log.d("Chat", "UserName : ${user.uid}")
+        supportActionBar?.title = user.username
 
         val adapter = GroupAdapter<ViewHolder>()
         adapter.add(ChatFromItem())

@@ -40,8 +40,6 @@ class ChatLogActivity : AppCompatActivity() {
 
         recyclerview_chat_log.adapter = adapter
 
-//        setupDummyData()
-
         ListenForMessages()
 
         send_btn_chat_log.setOnClickListener {
@@ -99,12 +97,17 @@ class ChatLogActivity : AppCompatActivity() {
         if (fromId == null) return
 //        val ref = FirebaseDatabase.getInstance().getReference("/messages").push()
         val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
+        val toReference = FirebaseDatabase.getInstance().getReference("/user-messages/$toId/$fromId").push()
 
         val chatMessage = ChatMessage(ref.key!!, text, fromId, toId, System.currentTimeMillis()/1000)
         ref.setValue(chatMessage)
             .addOnSuccessListener {
                 Log.d(TAG, "Saved our message: ${ref.key}")
+                edittext_chat_log.text.clear()
+                recyclerview_chat_log.scrollToPosition(adapter.itemCount-1)
             }
+
+        toReference.setValue(chatMessage)
     }
 }
 

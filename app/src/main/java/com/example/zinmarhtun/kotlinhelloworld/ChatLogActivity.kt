@@ -51,7 +51,11 @@ class ChatLogActivity : AppCompatActivity() {
     }
 
     private fun ListenForMessages() {
-        val ref = FirebaseDatabase.getInstance().getReference("/messages")
+        val fromId = FirebaseAuth.getInstance().uid
+        val toId = toUser?.uid
+        val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId")
+//        val ref = FirebaseDatabase.getInstance().getReference("/messages")
+
         ref.addChildEventListener(object: ChildEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -93,7 +97,9 @@ class ChatLogActivity : AppCompatActivity() {
         val toId = user.uid
 
         if (fromId == null) return
-        val ref = FirebaseDatabase.getInstance().getReference("/messages").push()
+//        val ref = FirebaseDatabase.getInstance().getReference("/messages").push()
+        val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
+
         val chatMessage = ChatMessage(ref.key!!, text, fromId, toId, System.currentTimeMillis()/1000)
         ref.setValue(chatMessage)
             .addOnSuccessListener {

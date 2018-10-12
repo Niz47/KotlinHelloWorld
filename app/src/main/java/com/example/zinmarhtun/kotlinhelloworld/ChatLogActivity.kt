@@ -108,6 +108,12 @@ class ChatLogActivity : AppCompatActivity() {
             }
 
         toReference.setValue(chatMessage)
+
+        val latestMsgRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/$toId")
+        latestMsgRef.setValue(chatMessage)
+
+        val latestMsgToRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$toId/$fromId")
+        latestMsgToRef.setValue(chatMessage)
     }
 }
 

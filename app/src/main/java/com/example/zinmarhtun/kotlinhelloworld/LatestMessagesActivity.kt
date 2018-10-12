@@ -42,7 +42,6 @@ class LatestMessagesActivity : AppCompatActivity() {
                 currentUser = p0.getValue(User::class.java)
                 Log.d(TAG, "Get Current User >> ${currentUser.toString()}")
             }
-
         })
     }
 
@@ -56,10 +55,11 @@ class LatestMessagesActivity : AppCompatActivity() {
             R.id.menu_new_message -> {
                 val intent = Intent(this, NewMessageActivity::class.java)
                 startActivity(intent)
-
             }
             R.id.menu_signout -> {
                 FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)
